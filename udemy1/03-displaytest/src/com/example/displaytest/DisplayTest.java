@@ -17,7 +17,7 @@ public class DisplayTest {
 			System.out.println("Couldn't open file " + FILE_PATH);
 		} else {
 			HighGui.namedWindow(WINDOW_NAME);
-			HighGui.imshow(WINDOW_NAME ,originalImage);
+			HighGui.imshow(WINDOW_NAME, originalImage);
 			HighGui.waitKey();
 		}
 	}
