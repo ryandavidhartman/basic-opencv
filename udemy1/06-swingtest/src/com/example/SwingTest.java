@@ -47,8 +47,9 @@ class FrameWindow extends JFrame {
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			if(e.getSource() == button) {
-				JOptionPane.showMessageDialog(null,"Hello " + textField.getText());
-				labelMessage.setText("Hello " + textField.getText());
+				String message = "Hello " + textField.getText();
+				JOptionPane.showMessageDialog(null, message);
+				labelMessage.setText(message);
 			}
 			
 		}
