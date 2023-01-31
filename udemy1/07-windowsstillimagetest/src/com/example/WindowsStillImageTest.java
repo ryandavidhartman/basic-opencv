@@ -4,10 +4,14 @@ import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.awt.image.DataBufferByte;
 
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
+import org.opencv.core.Core;
 import org.opencv.core.Mat;
+import org.opencv.highgui.HighGui;
+import org.opencv.imgcodecs.Imgcodecs;
 
 class FrameWindow extends JFrame{
 	
@@ -40,13 +44,32 @@ class FrameWindow extends JFrame{
 	
 	public void setImage(Mat matImage) {
 		Image image = Mat2BufferedImage(matImage);
+		ImageIcon imageIcon = new ImageIcon(image);
+		setSize(matImage.cols(), matImage.rows());
+		labelImage.setIcon(imageIcon);
+		labelImage.repaint();
 	}
 }
 
 public class WindowsStillImageTest {
+	
+	private static final String FILE_PATH = "resources/cat.jpg";
+	private static final String WINDOW_NAME = "Still Image";
+
 
 	public static void main(String[] args) {
-		FrameWindow frameWindow = new FrameWindow("Still Image");
+		
+		System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
+		Mat originalImage = Imgcodecs.imread(FILE_PATH);
+		
+		if(originalImage.dataAddr()==0){
+			System.out.println("Couldn't open file " + FILE_PATH);
+			System.exit(-1);
+		}
+
+		FrameWindow frameWindow = new FrameWindow(WINDOW_NAME);
+		frameWindow.setImage(originalImage);
+		
 	}
 
 }
