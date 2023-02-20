@@ -11,6 +11,7 @@ import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import static org.opencv.core.Core.*;
@@ -87,7 +88,7 @@ public class Detector {
 	}
 	
 
-	public List<Point> getGraphPoints() {
+	public ArrayList<Point> getGraphPoints() {
 		return graph.phist;
 	}
 	
@@ -115,7 +116,7 @@ public class Detector {
 		updateMotionHistory(silh, mhi, timestamp, MHI_DURATION);
 		mhi.convertTo(mask, mask.type(), 255.0 / MHI_DURATION, (MHI_DURATION - timestamp) * 255.0 / MHI_DURATION);
 		dst.setTo(new Scalar(0));
-		List<Mat> list = new LinkedList<Mat>();  //new ArrayList<Mat>(3);
+		List<Mat> list = new ArrayList<Mat>(3);
 		list.add(mask);
 		list.add(Mat.zeros(mask.size(), mask.type()));
 		list.add(Mat.zeros(mask.size(), mask.type()));

@@ -39,14 +39,14 @@ public class WebcamServer extends WebSocketServer {
 		//broadcast(message);
 		System.out.println(conn + ": " + message);
 		if(message.equals("shutdown")) {
-			//sendText("ok shuting down");
-			conn.send("ok shyyting down");
+			//sendText("ok shutting down");
+			conn.send("ok shutting down");
 			conn.close();
 			try {
 				stop();
-			}catch(IOException eio) {
-				System.out.println("eio: " + eio.toString());
-				BreathDetect.toShutdown = true;
+			//}catch(IOException eio) {
+			//	System.out.println("eio: " + eio.toString());
+			//	BreathDetect.toShutdown = true;
 			}catch(InterruptedException einterrupt) {
 				System.out.println("einterrupt: " + einterrupt.toString());
 				BreathDetect.toShutdown = true;

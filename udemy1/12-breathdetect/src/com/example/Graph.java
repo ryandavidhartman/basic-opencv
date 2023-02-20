@@ -1,7 +1,6 @@
 package com.example;
 
-import java.util.LinkedList;
-import java.util.List;
+import java.util.ArrayList;
 
 import org.opencv.core.Mat;
 import org.opencv.core.Point;
@@ -11,7 +10,7 @@ import processing.core.PGraphics;
 import processing.core.PApplet;
 
 public class Graph {
-	public List<Point> phist;
+	public ArrayList<Point> phist;
 	int histCount;
 	static final int SIZE = 2048;
 	public static int graphPoint = 300, counter=0;
@@ -25,7 +24,7 @@ public class Graph {
 	public PGraphics circles;
 	
 	public Graph(PApplet pApplet) {
-		phist = new LinkedList<>();
+		phist = new ArrayList<>();
 		histCount = 0;
 		
 		//-- Processing

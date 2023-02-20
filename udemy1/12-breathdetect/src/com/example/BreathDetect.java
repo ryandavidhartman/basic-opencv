@@ -1,6 +1,6 @@
 package com.example;
 
-import java.util.List;
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Timer;
@@ -14,6 +14,7 @@ import processing.core.PFont;
 import processing.core.PGraphics;
 import processing.core.PImage;
 
+
 public class BreathDetect extends PApplet {
 	
 	public Queue<Double> periods;
@@ -21,7 +22,7 @@ public class BreathDetect extends PApplet {
 	Detector detector;
 	//PGraphics graphCircles;
 	PFont f;
-	List<Point> graphPoints;
+	ArrayList<Point> graphPoints;
 	
 	int webcamDirection = 0;
 	public static int currentDirection = 0;
@@ -181,5 +182,5 @@ public class BreathDetect extends PApplet {
 		System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
 		PApplet.main(BreathDetect.class.getName());
 	}
-
 }
+
